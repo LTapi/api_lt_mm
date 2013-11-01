@@ -1,0 +1,165 @@
+/* ::::: http://a.slander-shop.com/files/style.css ::::: */
+
+HTML { background: none repeat scroll 0% 0% rgb(174, 200, 232); font: 9pt Tahoma,Arial,Verdana; color: rgb(0, 0, 0); padding: 0px; margin: 0px; width: 100%; height: 100%; }
+body { background: url('background_site.jpg') repeat-x scroll 0% 0% rgb(174, 200, 232); position: relative; padding: 0px; margin: 0px; width: 100%; min-height: 100%; }
+img { border: medium none; }
+table { width: 100%; border-collapse: collapse; }
+td { vertical-align: top; }
+* { margin: 0px; padding: 0px; }
+ul { margin: 0px; padding: 0px; }
+li { list-style-type: none; }
+.hide { display: none; }
+.clear { clear: both; font-size: 1px; }
+:focus { outline: medium none; }
+a:hover { text-decoration: none; }
+@font-face {
+  font-family: "MyriadProBoldItalic";  font-style: normal;  font-weight: normal;  src: url('myriadpro-boldit-webfont.eot') format("embedded-opentype"), url('myriadpro-boldit-webfont.woff') format("woff"), url('myriadpro-boldit-webfont.ttf') format("truetype");}
+@font-face {
+  font-family: "MyriadProCondBold";  font-style: normal;  font-weight: normal;  src: url('myriadpro-boldcond-webfont.eot') format("embedded-opentype"), url('myriadpro-boldcond-webfont.woff') format("woff"), url('myriadpro-boldcond-webfont.ttf') format("truetype");}
+.header { height: 511px; background: url('header_background.jpg') no-repeat scroll 50% 0pt transparent; }
+.center_header { width: 1000px; margin: 0px auto; }
+.content { width: 1000px; margin: 0px auto; padding-bottom: 40px; }
+.header .url { font: 35pt MyriadProBoldItalic; color: rgb(222, 66, 16); text-align: right; padding: 33px 10px 0px 0px; }
+.white_bl_site .white_bl_site_top { margin-right: 14px; height: 14px; font-size: 1px; background: url('white_bl_site_top.png') no-repeat scroll 0% 0% transparent; }
+.white_bl_site .white_bl_site_top div { position: relative; left: 14px; height: 14px; font-size: 1px; background: url('white_bl_site_top_02.png') no-repeat scroll 100% 0pt transparent; }
+.white_bl_site_bottom { margin-right: 14px; height: 14px; font-size: 1px; background: url('white_bl_site_bottom.png') no-repeat scroll 0% 0% transparent; }
+.white_bl_site .white_bl_site_text { background: none repeat scroll 0% 0% rgb(255, 255, 255); padding: 15px 40px; }
+.blue_block { width: 920px; background: url('blue_block.jpg') repeat-y scroll 0% 0% transparent; }
+.blue_block .blue_block_background { background: url('blue_block_background.jpg') no-repeat scroll 0% 0% transparent; }
+.blue_block .blue_block_background_bottom { background: url('blue_block_background_bottom.jpg') no-repeat scroll 0pt 100% transparent; }
+.gray_slim_block { width: 920px; background: url('gray_slim_block.jpg') repeat-y scroll 0% 0% transparent; }
+.gray_slim_block .gray_slim_block_background { background: url('gray_slim_block_background.jpg') no-repeat scroll 0% 0% transparent; }
+.gray_slim_block .gray_slim_block_background_bottom { background: url('gray_slim_block_background_bottom.jpg') no-repeat scroll 0pt 100% transparent; }
+.blue_text_block_02 { text-align: center; font: 31pt MyriadProCondBold; text-transform: uppercase; color: rgb(255, 255, 255); margin-bottom: 40px; width: 918px; height: 121px; background: url('blue_text_block_02.jpg') no-repeat scroll 0% 0% transparent; }
+.blue_text_block_02 div { padding: 16px 0px 0px; }
+.content p { font: 12pt Arial; color: rgb(51, 51, 51); padding-bottom: 15px; }
+.redline_block { margin-bottom: 30px; }
+.redline_block .redline_block_text { padding: 20px 20px 1px; background: url('redline_block_text.jpg') repeat-y scroll 0% 0% transparent; }
+.redline_block .redline_block_top { height: 16px; margin-bottom: -16px; position: relative; font-size: 1px; background: url('redline_block_top.gif') no-repeat scroll 0% 0% transparent; }
+.redline_block .redline_block_bottom { height: 16px; margin-top: -16px; position: relative; font-size: 1px; background: url('redline_block_bottom.gif') no-repeat scroll 0% 0% transparent; }
+.vnimanie_bl { padding: 30px 30px 30px 42px; }
+.vnimanie_bl .foto { float: left; }
+.vnimanie_bl .text { padding-left: 212px; font: 22pt/29px MyriadProCondBold; color: rgb(48, 48, 48); }
+.vnimanie_bl .text span { color: rgb(225, 37, 30); }
+.vnimanie_bl .text h2 { font: 44pt MyriadProCondBold; color: rgb(225, 37, 30); text-transform: uppercase; }
+.mega_sale { font: 22pt MyriadProBoldItalic; text-align: center; padding: 20px 0px; }
+.mega_sale .price { padding: 20px 0px 10px; color: rgb(51, 51, 51); font-size: 25pt; }
+.mega_sale .price span.bold { font-size: 47pt; color: rgb(255, 72, 0); }
+.sale_time { padding: 0px 0px 20px; text-align: center; font: 33pt MyriadProCondBold; }
+.sale_time span { font-size: 47pt; color: rgb(255, 72, 0); }
+.save_sales { margin-bottom: 35px; width: 919px; height: 91px; background: url('save_sales.jpg') no-repeat scroll 0% 0% transparent; font: 18pt Tahoma; }
+.save_sales span { color: rgb(255, 72, 0); }
+.save_sales div { padding: 16px 20px 0px; }
+.predlogenie_01 { padding: 15px 0px 20px; text-align: center; }
+.predlogenie_01 h2 { font: 40pt MyriadProCondBold; color: rgb(255, 72, 0); padding-bottom: 10px; }
+.predlogenie_01 p { font: 18pt MyriadProCondBold; }
+.predlogenie_01 h3 { font: 29pt MyriadProCondBold; color: rgb(0, 0, 0); }
+.stop_zakaz { padding: 25px 0px 15px 35px; }
+.stop_zakaz .foto { float: left; }
+.stop_zakaz .text { padding: 30px 0px 0px 166px; font: 25pt/32px MyriadProCondBold; text-transform: uppercase; }
+.bonus_bl { padding-bottom: 18px; }
+.bonus_bl .gray_slim_block_background_bottom { padding: 32px 0px 25px 32px; }
+.bonus_bl .foto { float: left; }
+.bonus_bl .text { padding: 0px 0px 0px 285px; }
+.bonus_bl .text .title { font: 19pt MyriadProBoldItalic; color: rgb(34, 136, 215); padding-bottom: 13px; }
+.bonus_bl .text .title span { color: rgb(0, 0, 0); }
+.bonus_bl .text p { font-size: 14px; padding: 0px 30px 0px 0px; }
+.bonus_bl .text .price { padding-top: 10px; font: italic 16pt trebuchet MS; }
+.bonus_bl .text .price span { color: rgb(255, 72, 0); }
+.bonus_bl .text .price b { font: 19pt MyriadProBoldItalic; text-decoration: line-through; }
+.binus_mini_text { padding: 0px 40px 23px 22px; font-size: 14px; line-height: 17px; }
+.econom_text { font-size: 11pt; padding: 0px 30px 20px 20px; }
+.econom_text h2 { font: 37pt MyriadProCondBold; color: rgb(224, 60, 0); padding-bottom: 0px; }
+.econom_text h3 { font: 23pt/30px MyriadProCondBold; color: rgb(0, 0, 0); padding-bottom: 5px; }
+.econom_text .garant { float: left; padding: 20px 0px 0px; }
+.econom_text .text_garant { font: 14pt Tahoma; padding: 30px 0px 0px 244px; }
+.econom_text .text_garant h3 { margin: 5px 0px; padding: 0px; }
+.mini_text_garant { padding: 0px 30px 30px; }
+.mini_text_garant h3 { font: 23pt/30px MyriadProCondBold; color: rgb(0, 0, 0); }
+.povtor_text { padding: 30px 0px 20px 45px; }
+.povtor_text h2 { font: 31pt MyriadProCondBold; color: rgb(255, 72, 0); padding-bottom: 10px; }
+.povtor_text ul li { font: 22pt MyriadProBoldItalic; padding-bottom: 3px; }
+.povtor_text ul li span { color: rgb(66, 150, 214); padding-right: 15px; }
+.povtor_text h3 { font: 22pt/30px MyriadProBoldItalic; color: rgb(224, 60, 0); padding: 15px 20px 5px 0px; }
+.stop_poddelka { padding: 30px 0px 20px; }
+.stop_poddelka h2 { font: 23pt/30px MyriadProCondBold; padding-bottom: 10px; text-align: center; }
+.stop_poddelka .title { text-align: center; }
+.stop_poddelka .text { padding: 0px 90px 0px 175px; font-size: 14px; line-height: 17px; }
+.zakaz_forma { padding: 35px 0px 20px 55px; }
+.zakaz_forma td { padding-bottom: 12px; }
+.blue_site { background: url('background_blue_site.jpg') repeat-x scroll 0% 0% rgb(133, 148, 193); }
+.blue_site .header { background: url('background_blue_site_header.jpg') no-repeat scroll 50% 0pt transparent; }
+.top_img_item { display: block; position: absolute; margin-left: 213px; }
+.content_menu { position: relative; top: -15px; width: 980px; margin: 0px -30px; height: 54px; background: url('content_menu.jpg') no-repeat scroll 0% 0% transparent; }
+.content_menu li { text-align: center; width: 33%; float: left; height: 54px; background: url('c_menu_line.gif') no-repeat scroll 100% 0pt transparent; }
+.content_menu li.no_back { background: none repeat scroll 0% 0% transparent; }
+.content_menu li a { position: relative; top: 12px; text-transform: uppercase; color: rgb(255, 255, 255); text-decoration: none; font: 23pt MyriadProCondBold; }
+.foot_contacts { margin: -10px 0pt 0pt;
+padding-bottom: 20px;
+color: rgb(78, 89, 119);
+text-align: center; }
+.order_button { display: block; padding: 0px; margin: 10px 0pt 30px 200px; text-align: center; width: 373px; height: 92px; color: rgb(255, 255, 255); font-size: 24px ! important; line-height: 44px; text-decoration: none; }
+#order_form {  }
+#order_form table { width: 100%; }
+#order_form table td:first-child { width: 180px; font-size: 13px; color: rgb(51, 51, 51); text-align: right; padding-top: 15px; }
+#order_form table td:first-child i { font-style: normal; color: rgb(255, 0, 0); font-size: 12px; width: 10px; display: inline-block; font-weight: bold; }
+.fcont { width: 340px; }
+.fcont input { margin: 2px 0pt 2px 20px; width: 280px; padding: 8px 10px; border: 1px solid rgb(136, 136, 136); font-size: 16px; border-radius: 5px 5px 5px 5px; }
+.fcont select { margin: 2px 0pt 2px 20px; width: 302px; padding: 8px 10px; border: 1px solid rgb(136, 136, 136); font-size: 16px; border-radius: 5px 5px 5px 5px; }
+.fhelp { font-size: 12px; color: rgb(119, 119, 119); }
+.clickOnMe { display: inline-block; font-style: normal; cursor: pointer; font-weight: bold; color: rgb(206, 0, 0) ! important; border-bottom: 1px dotted rgb(206, 0, 0); }
+.bg_input { background: none repeat scroll 0% 0% rgb(229, 244, 252); color: rgb(170, 170, 170); }
+.bg_input_summ { background: none repeat scroll 0% 0% rgb(229, 244, 252); color: rgb(85, 85, 85); }
+.err_note { background: none repeat scroll 0% 0% rgb(255, 255, 255); color: rgb(255, 0, 0); padding: 3px 8px; text-shadow: 1px 1px rgb(255, 255, 255); border: 1px solid rgb(255, 0, 0); border-radius: 3px 3px 3px 3px; }
+.items_table { font-size: 14px; color: rgb(0, 0, 0); width: 100%; border-collapse: collapse; margin: 15px 0pt; }
+.items_table td { padding: 15px 14px; border: 1px solid rgb(211, 211, 211); vertical-align: top; }
+.items_table_head td { background: none repeat scroll 0% 0% rgb(229, 244, 252); padding: 5px 10px; height: 20px; line-height: 18px; font-size: 18px; font-weight: bold; color: rgb(38, 120, 219); }
+.td1 { width: 20px; text-align: center; }
+.td2 { width: 200px; text-align: center; }
+.td3 p { display: inline-block; color: rgb(34, 34, 34); font-size: 20px; margin: 10px 0pt; }
+.td3 span { display: inline-block; color: rgb(68, 68, 68); font-size: 14px; margin: 10px 0pt; }
+.td4 { width: 90px; text-align: center; color: rgb(119, 119, 119); padding-top: 30px ! important; }
+.td4 p { display: inline-block; color: rgb(34, 34, 34); font-size: 20px; margin-top: 20px; }
+.td4 s { display: inline-block; color: rgb(136, 136, 136); font-size: 15px; margin-top: 10px; }
+.td5 { width: 60px; text-align: center; color: rgb(119, 119, 119); padding-top: 30px ! important; }
+.td5 input { width: 42px; padding: 5px; text-align: center; border: 1px solid rgb(204, 204, 204); margin: 25px 0pt 0pt; font-size: 14px; }
+/* ::::: http://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700 ::::: */
+
+@font-face {
+  font-family: "PT Sans Caption";  font-style: normal;  font-weight: 400;  src: local("PT Sans Caption"), local("PTSans-Caption"), url('oxytdozbcxu8mtnbvbhesqrw432dtwgner78eoj0i0s.woff') format("woff");}
+@font-face {
+  font-family: "PT Sans Caption";  font-style: normal;  font-weight: 700;  src: local("PT Sans Caption Bold"), local("PTSans-CaptionBold"), url('q-gjrfokee7jydppxast2w9wu1cdftjumisafqyybwg.woff') format("woff");}
+
+
+.summ_font{
+  vertical-align: bottom;
+}
+.order_head{
+    color: #636060;
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+#adress{
+    width: 540px;
+}
+.message_element{
+    color: #636060;
+    margin: 2px 0pt 2px;
+    padding: 2px 20px;
+}
+.your_order{
+    font-size: 14px;
+    margin: 12px 0pt 0px;
+}
+.order_line{
+    margin-top: -40px;
+    margin-bottom: 50px;
+    position: relative;
+    width: 650px;
+    margin-left: 80px;
+}
+.total_order{
+    font-size: 20px;
+    margin: 6px 0pt -4px;
+}
