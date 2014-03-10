@@ -1,7 +1,7 @@
 /* ::::: http://a.slander-shop.com/files/style.css ::::: */
 
 HTML { background: none repeat scroll 0% 0% rgb(174, 200, 232); font: 9pt Tahoma,Arial,Verdana; color: rgb(0, 0, 0); padding: 0px; margin: 0px; width: 100%; height: 100%; }
-body { background: url('background_site.jpg') repeat-x scroll 0% 0% rgb(174, 200, 232); position: relative; padding: 0px; margin: 0px; width: 100%; min-height: 100%; }
+body { position: relative; padding: 0px; margin: 0px; width: 100%; min-height: 100%; }
 img { border: medium none; }
 table { width: 100%; border-collapse: collapse; }
 td { vertical-align: top; }
@@ -12,31 +12,14 @@ li { list-style-type: none; }
 .clear { clear: both; font-size: 1px; }
 :focus { outline: medium none; }
 a:hover { text-decoration: none; }
-@font-face {
-  font-family: "MyriadProBoldItalic";  font-style: normal;  font-weight: normal;  src: url('myriadpro-boldit-webfont.eot') format("embedded-opentype"), url('myriadpro-boldit-webfont.woff') format("woff"), url('myriadpro-boldit-webfont.ttf') format("truetype");}
-@font-face {
-  font-family: "MyriadProCondBold";  font-style: normal;  font-weight: normal;  src: url('myriadpro-boldcond-webfont.eot') format("embedded-opentype"), url('myriadpro-boldcond-webfont.woff') format("woff"), url('myriadpro-boldcond-webfont.ttf') format("truetype");}
-.header { height: 511px; background: url('header_background.jpg') no-repeat scroll 50% 0pt transparent; }
 .center_header { width: 1000px; margin: 0px auto; }
 .content { width: 1000px; margin: 0px auto; padding-bottom: 40px; }
 .header .url { font: 35pt MyriadProBoldItalic; color: rgb(222, 66, 16); text-align: right; padding: 33px 10px 0px 0px; }
-.white_bl_site .white_bl_site_top { margin-right: 14px; height: 14px; font-size: 1px; background: url('white_bl_site_top.png') no-repeat scroll 0% 0% transparent; }
-.white_bl_site .white_bl_site_top div { position: relative; left: 14px; height: 14px; font-size: 1px; background: url('white_bl_site_top_02.png') no-repeat scroll 100% 0pt transparent; }
-.white_bl_site_bottom { margin-right: 14px; height: 14px; font-size: 1px; background: url('white_bl_site_bottom.png') no-repeat scroll 0% 0% transparent; }
 .white_bl_site .white_bl_site_text { background: none repeat scroll 0% 0% rgb(255, 255, 255); padding: 15px 40px; }
-.blue_block { width: 920px; background: url('blue_block.jpg') repeat-y scroll 0% 0% transparent; }
-.blue_block .blue_block_background { background: url('blue_block_background.jpg') no-repeat scroll 0% 0% transparent; }
-.blue_block .blue_block_background_bottom { background: url('blue_block_background_bottom.jpg') no-repeat scroll 0pt 100% transparent; }
-.gray_slim_block { width: 920px; background: url('gray_slim_block.jpg') repeat-y scroll 0% 0% transparent; }
-.gray_slim_block .gray_slim_block_background { background: url('gray_slim_block_background.jpg') no-repeat scroll 0% 0% transparent; }
-.gray_slim_block .gray_slim_block_background_bottom { background: url('gray_slim_block_background_bottom.jpg') no-repeat scroll 0pt 100% transparent; }
 .blue_text_block_02 { text-align: center; font: 31pt MyriadProCondBold; text-transform: uppercase; color: rgb(255, 255, 255); margin-bottom: 40px; width: 918px; height: 121px; background: url('blue_text_block_02.jpg') no-repeat scroll 0% 0% transparent; }
 .blue_text_block_02 div { padding: 16px 0px 0px; }
 .content p { font: 12pt Arial; color: rgb(51, 51, 51); padding-bottom: 15px; }
 .redline_block { margin-bottom: 30px; }
-.redline_block .redline_block_text { padding: 20px 20px 1px; background: url('redline_block_text.jpg') repeat-y scroll 0% 0% transparent; }
-.redline_block .redline_block_top { height: 16px; margin-bottom: -16px; position: relative; font-size: 1px; background: url('redline_block_top.gif') no-repeat scroll 0% 0% transparent; }
-.redline_block .redline_block_bottom { height: 16px; margin-top: -16px; position: relative; font-size: 1px; background: url('redline_block_bottom.gif') no-repeat scroll 0% 0% transparent; }
 .vnimanie_bl { padding: 30px 30px 30px 42px; }
 .vnimanie_bl .foto { float: left; }
 .vnimanie_bl .text { padding-left: 212px; font: 22pt/29px MyriadProCondBold; color: rgb(48, 48, 48); }
@@ -47,7 +30,6 @@ a:hover { text-decoration: none; }
 .mega_sale .price span.bold { font-size: 47pt; color: rgb(255, 72, 0); }
 .sale_time { padding: 0px 0px 20px; text-align: center; font: 33pt MyriadProCondBold; }
 .sale_time span { font-size: 47pt; color: rgb(255, 72, 0); }
-.save_sales { margin-bottom: 35px; width: 919px; height: 91px; background: url('save_sales.jpg') no-repeat scroll 0% 0% transparent; font: 18pt Tahoma; }
 .save_sales span { color: rgb(255, 72, 0); }
 .save_sales div { padding: 16px 20px 0px; }
 .predlogenie_01 { padding: 15px 0px 20px; text-align: center; }
@@ -87,11 +69,11 @@ a:hover { text-decoration: none; }
 .stop_poddelka .text { padding: 0px 90px 0px 175px; font-size: 14px; line-height: 17px; }
 .zakaz_forma { padding: 35px 0px 20px 55px; }
 .zakaz_forma td { padding-bottom: 12px; }
-.blue_site { background: url('background_blue_site.jpg') repeat-x scroll 0% 0% rgb(133, 148, 193); }
-.blue_site .header { background: url('background_blue_site_header.jpg') no-repeat scroll 50% 0pt transparent; }
+
+
 .top_img_item { display: block; position: absolute; margin-left: 213px; }
-.content_menu { position: relative; top: -15px; width: 980px; margin: 0px -30px; height: 54px; background: url('content_menu.jpg') no-repeat scroll 0% 0% transparent; }
-.content_menu li { text-align: center; width: 33%; float: left; height: 54px; background: url('c_menu_line.gif') no-repeat scroll 100% 0pt transparent; }
+
+
 .content_menu li.no_back { background: none repeat scroll 0% 0% transparent; }
 .content_menu li a { position: relative; top: 12px; text-transform: uppercase; color: rgb(255, 255, 255); text-decoration: none; font: 23pt MyriadProCondBold; }
 .foot_contacts { margin: -10px 0pt 0pt;
@@ -123,13 +105,6 @@ text-align: center; }
 .td4 s { display: inline-block; color: rgb(136, 136, 136); font-size: 15px; margin-top: 10px; }
 .td5 { width: 60px; text-align: center; color: rgb(119, 119, 119); padding-top: 30px ! important; }
 .td5 input { width: 42px; padding: 5px; text-align: center; border: 1px solid rgb(204, 204, 204); margin: 25px 0pt 0pt; font-size: 14px; }
-/* ::::: http://fonts.googleapis.com/css?family=PT+Sans+Caption:400,700 ::::: */
-
-@font-face {
-  font-family: "PT Sans Caption";  font-style: normal;  font-weight: 400;  src: local("PT Sans Caption"), local("PTSans-Caption"), url('oxytdozbcxu8mtnbvbhesqrw432dtwgner78eoj0i0s.woff') format("woff");}
-@font-face {
-  font-family: "PT Sans Caption";  font-style: normal;  font-weight: 700;  src: local("PT Sans Caption Bold"), local("PTSans-CaptionBold"), url('q-gjrfokee7jydppxast2w9wu1cdftjumisafqyybwg.woff') format("woff");}
-
 
 .summ_font{
   vertical-align: bottom;

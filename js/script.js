@@ -54,6 +54,10 @@ function finish_shoppings(form){
     
   }
 
-  form.submit();
+  var form = document.getElementById("order_all");
+
+  //$(".order_button").addEventListener("click", function () {
+    form.submit();
+  //});
   return true;
 }
