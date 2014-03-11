@@ -16,12 +16,12 @@
   <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  
-  <script type="text/javascript" src="js/script.js"></script>
+
+  <script type="text/javascript" src="/js/valid_form.js"></script>
 </head>
 <body>
 
-<form action="/success/" method="post" id="order_all" name="order_all">
+<form action="/success/" method="post">
   
   <div class="blue_block" id="form">
     
@@ -93,9 +93,7 @@
                 <td class="fcont summ_font">
                   <div class="message_element total_order">
                     <span class="summ_load">1999 руб.</span>
-                    <input type="hidden" id="int-s-new_price" readonly="readonly" name="productsum" value="1650 руб." class="bg_input">
-                    <input type="hidden" id="int-s-delivery" readonly="readonly" name="delivery" value="180 руб." class="bg_input">
-                    <input type="hidden" id="int-s-ttl" readonly="readonly" name="totalsum" value="1999 руб." class="bg_input_summ">
+                   
                   </div>
                 </td>
               </tr>
@@ -104,13 +102,17 @@
         </table>
         <hr class="order_line">
 
+        <input type="hidden" id="int-s-new_price" readonly="readonly" name="productsum" value="1650 руб." class="bg_input">
+
+        <input type="hidden" id="int-s-delivery" readonly="readonly" name="delivery" value="180 руб." class="bg_input">
+
+        <input type="hidden" id="int-s-ttl" readonly="readonly" name="totalsum" value="1999 руб." class="bg_input_summ">
+
         <input type="hidden" name="lead" value="<?php echo $leadDataObj->lttracking.".".$leadDataObj->ltsource; ?>" />
 
         <input type="hidden" name="subid" value="<?php echo $leadDataObj->subid; ?>" />
 
-        <a class="order_button" href="javascript:void(0)" onclick="finish_shoppings(event);return false;">
-          Оформить Заказ
-        </a>
+        <a class="order_button" href="javascript:void(0)" onclick="checkFields(event, this);">Оформить Заказ</a>
 
       </div>
 
