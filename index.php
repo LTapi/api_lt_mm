@@ -22,13 +22,13 @@
 <body>
 
 <form action="/success/" method="post">
-  
+
   <div class="blue_block" id="form">
-    
+
     <div class="blue_block_background">
-      
+
       <div class="blue_block_background_bottom">
-        
+
         <div class="zakaz_forma" id="order_form">
 
           <table cellpadding="0" cellspacing="0">
@@ -49,7 +49,7 @@
               <tr>
                 <td>Полный адрес: <i>*</i></td>
                 <td class="fcont">
-                  <input value="" name="adress" id="adress" required="" type="text"><br>
+                  <input value="" name="adress" id="address" required="" type="text"><br>
                   <div class="message_element">
                     <span id="note_address">Пример: <b>135999, Москва, ул.Ленина д.10 кв.5</b></span>
                     <div style="margin-top: 8px;"><span id="error_address" class="err_note hide"></span></div>
@@ -87,13 +87,13 @@
                   </div>
                 </td>
               </tr>
-              
+
               <tr>
                 <td>ИТОГО: <i></i></td>
                 <td class="fcont summ_font">
                   <div class="message_element total_order">
                     <span class="summ_load">1999 руб.</span>
-                   
+
                   </div>
                 </td>
               </tr>
