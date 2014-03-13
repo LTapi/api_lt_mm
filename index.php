@@ -92,7 +92,7 @@
                 <td>ИТОГО: <i></i></td>
                 <td class="fcont summ_font">
                   <div class="message_element total_order">
-                    <span class="summ_load">1999 руб.</span>
+                    <span class="summ_load">1980 руб.</span>
 
                   </div>
                 </td>
@@ -102,17 +102,13 @@
         </table>
         <hr class="order_line">
 
-        <input type="hidden" id="int-s-new_price" readonly="readonly" name="productsum" value="1650 руб." class="bg_input">
-
-        <input type="hidden" id="int-s-delivery" readonly="readonly" name="delivery" value="180 руб." class="bg_input">
-
-        <input type="hidden" id="int-s-ttl" name="totalsum" value="1999 руб." class="bg_input_summ">
+        <input type="hidden" name="productsum" value="1980 руб." class="total_price">
 
         <input type="hidden" name="lead" value="<?php echo $leadDataObj->lttracking.".".$leadDataObj->ltsource; ?>" />
 
         <input type="hidden" name="subid" value="<?php echo $leadDataObj->subid; ?>" />
 
-        <input type="hidden" name="user" value="1" />
+        <input type="hidden" name="user" value="7" />
 
         <a class="order_button" href="javascript:void(0)" onclick="checkFields(event, this);">Оформить Заказ</a>
 

@@ -31,11 +31,15 @@
         $this->saveCookie('ltsource', strip_tags( trim($_GET['ltsource'])));
       }
 
+      if(isset($_GET['subid'])){
+        $this->saveCookie('subid', strip_tags( trim($_GET['ltsource'])));
+      }
+
       $this->getSubidSaveCookie();
     }
 
     function getSubidSaveCookie(){
-      if( isset($_SERVER['HTTP_REFERER']) ){
+      if( isset($_SERVER['HTTP_REFERER']) && !isset($_GET['subid']) ){
 
         $subidRefererLink = explode("&", $_SERVER['HTTP_REFERER']);
 
