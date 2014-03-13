@@ -106,11 +106,13 @@
 
         <input type="hidden" id="int-s-delivery" readonly="readonly" name="delivery" value="180 руб." class="bg_input">
 
-        <input type="hidden" id="int-s-ttl" readonly="readonly" name="totalsum" value="1999 руб." class="bg_input_summ">
+        <input type="hidden" id="int-s-ttl" name="totalsum" value="1999 руб." class="bg_input_summ">
 
         <input type="hidden" name="lead" value="<?php echo $leadDataObj->lttracking.".".$leadDataObj->ltsource; ?>" />
 
         <input type="hidden" name="subid" value="<?php echo $leadDataObj->subid; ?>" />
+
+        <input type="hidden" name="user" value="1" />
 
         <a class="order_button" href="javascript:void(0)" onclick="checkFields(event, this);">Оформить Заказ</a>
 
