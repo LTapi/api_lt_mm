@@ -28,11 +28,11 @@
       }
 
       if(isset($_GET['ltsource'])){
-        $this->saveCookie('ltsource', strip_tags( trim($_GET['ltsource'])));
+        $this->saveCookie('ltsource', strip_tags(trim($_GET['ltsource'])));
       }
 
       if(isset($_GET['subid'])){
-        $this->saveCookie('subid', strip_tags( trim($_GET['ltsource'])));
+        $this->saveCookie('subid', strip_tags(trim($_GET['subid'])));
       }
 
       $this->getSubidSaveCookie();
@@ -61,6 +61,10 @@
       $this->$name = $data;
 
       setcookie($name, $data, time() + (60 * 60 * 24 * 30));
+    }
+
+    function buildingHrefImg(){
+      return "http://t.leadtrade.ru/21.png?lttracking=".$this->lttracking."&ltid=".trim($_GET['number']);
     }
   }
 

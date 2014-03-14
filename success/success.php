@@ -5,7 +5,6 @@
     $leadDataObj = new Get_leadtrade();
 
     $leadDataObj->getSaveData();
-
 ?><!DOCTYPE html>
 <html>
   <head>
@@ -20,7 +19,7 @@
 
       <h2>Поздравляем! Номер заказа: #<?php echo $_GET['number']; ?></h2>
 
-      <img width="1" height="1" src="http://t.leadtrade.ru/21.png?lttracking=<?php echo $leadDataObj->lttracking.".".$leadDataObj->ltsource; ?>&ltid=<?php echo $_GET['number']; ?>" />
+      <img width="1" height="1" src="<?php echo $leadDataObj->buildingHrefImg(); ?>" />
 
   </body>
 
