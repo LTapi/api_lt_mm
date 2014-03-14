@@ -4,7 +4,6 @@
   $leadDataObj = new Get_leadtrade();
 
   $leadDataObj->getSaveData();
-
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -108,7 +107,7 @@
 
         <input type="hidden" name="subid" value="<?php echo $leadDataObj->subid; ?>" />
 
-        <input type="hidden" name="user" value="7" />
+        <input type="hidden" name="user" value="1" />
 
         <a class="order_button" href="javascript:void(0)" onclick="checkFields(event, this);">Оформить Заказ</a>
 

@@ -10,7 +10,7 @@
     function getSaveData(){
       if( !empty($_COOKIE) ){ $this->getCookieData(); }
 
-      if( !empty($_POST) ) {$this->getLttrackingLtsourceSubid(); }
+      if( !empty($_GET) ) {$this->getLttrackingLtsourceSubid(); }
     }
 
     function getCookieData(){

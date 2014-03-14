@@ -6,9 +6,9 @@
     function __construct(){
       $this->pass = "jfTntHcdOf";
 
-      $this->submitUrl = 'http://moneymakerz.dev/_shared/submit_form/';
+      $this->submitUrl = 'http://moneymakerz.ru/_shared/submit_form/';
 
-      $this->numberUrl = 'http://moneymakerz.dev/xmlparse/postnumber/';
+      $this->numberUrl = 'http://moneymakerz.ru/xmlparse/postnumber/';
 
       $this->user = 1;
 
@@ -110,14 +110,15 @@
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($data));
 
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)")
+        curl_setopt($curl, CURLOPT_USERAGENT, "Mozilla/4.0 (compatible; MSIE 5.01; Windows NT 5.0)");
         curl_setopt($curl, CURLOPT_URL, $url);
-      $returnCurlData = curl_exec($curl);
-  // 
-        curl_close($curl);
-    
 
-      return $returnCurlData;
+        $returnCurlData = curl_exec($curl);
+
+        curl_close($curl);
+
+        return $returnCurlData;
+      }
     }
 
     function returnGeneralPage(){
