@@ -56,14 +56,23 @@
 
         'data' => array(
           'name' => $_POST['name'],
+
           'index' => $_POST['index'],
+
           'adress' => $_POST['adress'],
+
           'phone' => $_POST['phone'],
+
           'country' => $_POST['country'],
+
           'city' => $_POST['city'],
+
           'quantity' => $_POST['quantity'],
+
           'productsum' => $_POST['productsum'],
+
           'delivery' => $_POST['delivery'],
+
           'totalsum' => $_POST['totalsum'],
         )
       );
