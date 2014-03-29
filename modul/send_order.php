@@ -19,8 +19,7 @@
 
         $this->processingMethodTrimStripslashes();
 
-        return $this->getCurlData($this->setDefaultData(), $this->submitUrl);
-
+        return $this->getCurlData($this->checkReplyStatus($this->setDefaultData()), $this->submitUrl);
       }
 
       return $this->returnGeneralPage();
@@ -104,6 +103,21 @@
 
       }
 
+    }
+
+    function checkReplyStatus($defaultData){
+      if( !$this->number ){
+
+        $fp = fopen(dirname(__FILE__)."/backup/backup.csv", "a+");
+
+        $content = array( date("d/m/Y H:m").';'.$defaultData['lead'].';'.json_encode($defaultData['data']).'\r\n' );
+
+        fputcsv($fp, $content);
+
+        fclose($fp);
+      }
+
+      return $defaultData;
     }
 
     function getCurlData($data, $url){
