@@ -1,15 +1,11 @@
 <?php
   require_once('modul/get_leadtrade.php');
-  require_once('modul/send_order.php');
 
   $leadDataObj = new Get_leadtrade();
-  $sendOrderObj = new Send_order();
 
   $leadDataObj->getSaveData();
 
-  // $defaultData = $sendOrderObj->getDefaultData($leadDataObj->number);
-
-  // var_dump($defaultData);
+  $validData = $leadDataObj->getValidData();
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +45,7 @@
     <div class="block_form">
       <label>Полный адрес:</label>
       <div>
-        <input class="form_input" value="" name="adress" id="address" type="text" required>
+        <input class="form_input" name="adress" id="address" type="text" value="<?php echo $validData['adress']; ?>" required>
         <span class="fhelp"><span class="example" id="note_address">Пример: <b>135999, Москва, ул. Ленина, д.10, кв.5</b></span>
         <span id="error_address" class="err_note hide"></span></span>
       </div>
@@ -58,7 +54,7 @@
     <div class="block_form">
       <label>Фамилия Имя Отчество:</label>
       <div>
-        <input class="form_input" value="" name="name" id="name" type="text" required>
+        <input class="form_input" name="name" id="name" type="text" value="<?php echo $validData['name']; ?>" required>
         <span class="fhelp"><span class="example" id="note_name">Пример: <b>Петров Петр Петрович</b></span>
         <span id="error_name" class="err_note hide"></span></span>
       </div>
@@ -67,7 +63,7 @@
     <div class="block_form">
       <label>Телефон (с кодом):</label>
       <div>
-        <input class="form_input" value="" name="phone" id="phone" type="text">
+        <input class="form_input" name="phone" id="phone" type="text" value="<?php echo $validData['phone']; ?>" >
         <span class="fhelp"><span class="example" id="note_phone">Пример: <b>+7 928 827-22-53</b> (международный формат)</span>
         <span id="error_phone" class="err_note hide"></span></span>
       </div>

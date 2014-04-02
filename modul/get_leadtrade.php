@@ -72,6 +72,15 @@
     function buildingHrefImg(){
       return "http://t.leadtrade.ru/21.png?lttracking=".$this->lttracking."&ltid=".trim($_COOKIE['number']);
     }
-  }
 
+    function getValidData(){
+      return array(
+        'name' => isset($_GET['name']) ? $_GET['name'] : "",
+
+        'adress' => isset($_GET['adress']) ? $_GET['adress'] : "",
+
+        'phone' => isset($_GET['phone']) ? $_GET['phone'] : ""
+      );
+    }
+  }
 ?>

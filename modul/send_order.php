@@ -102,10 +102,17 @@
       $this->number = $this->getCurlData( array('pass' => $this->pass), $this->numberUrl );
     }
 
-    function checkValidationData(){
+    function checkValidationData($methodInputArray){
+      foreach ($methodInputArray as $inputName) {
 
-      var_dump($this->email('test@mail.ru'));
-      exit();
+        if(method_exists('Validation', $inputName) && isset($_POST[$inputName])){
+
+          if($this->$inputName($_POST[$inputName])) return $this->returnGeneralPageThisValidation($methodInputArray);
+
+        }
+      }
+
+      return true;
     }
 
     function setDefaultPost($keyDataArray){
@@ -183,6 +190,22 @@
     function returnGeneralPage(){
 
       header('Location: http://'.$_SERVER['HTTP_HOST']."/");
+      exit();
+    }
+
+    function returnGeneralPageThisValidation($methodInputArray){
+
+      foreach ($methodInputArray as $inputName) {
+
+        if(isset($_POST[$inputName])) {
+
+          $getStr[] = $inputName.'='.$_POST[$inputName];
+
+        }
+
+      }
+
+      header('Location: http://'.$_SERVER['HTTP_HOST']."/?".implode("&", $getStr));
       exit();
     }
   }
