@@ -2,7 +2,7 @@ body, html{
   min-height: 100%;
   margin:0px;
   padding: 0px;
-  background: url(/img/bg.png);
+  background: url(../img/bg.png);
 }
 body{
   padding-top: 40px;

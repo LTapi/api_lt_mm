@@ -34,7 +34,7 @@
 
         <h2>ПОЗДРАВЛЯЕМ! ВАШ ЗАКАЗ №<?php echo $defaultData['number']; ?> ПРИНЯТ!</h2>
 
-        <a href="/moreinfo.php" class="url_more_info">Нажмите здесь для получения более подробной информации о заказе</a>
+        <a href="/success/moreinfo.php" class="url_more_info">Нажмите здесь для получения более подробной информации о заказе</a>
 
         <img width="1" height="1" src="<?php echo $leadDataObj->buildingHrefImg(); ?>" />
 

@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <title>Информация о заказе</title>
-  <link type="text/css" rel="stylesheet" href="/css/moreinfo_style.css" />
+  <link type="text/css" rel="stylesheet" href="default/css/moreinfo_style.css" />
 </head>
 <body>
   <div class="block_more_info">
