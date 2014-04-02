@@ -7,7 +7,7 @@
 
     'city'        : 'Укажите название города, где Вы сейчас проживайте.',
 
-    'phone'       : 'Необходимо ввести номер телефона'
+    'phone'       : 'Необходимо ввести номер телефона, минимум 10 цифр'
   }
 
   function checkFields(event, thisLink){
@@ -67,7 +67,7 @@
       },
 
       phone   : function (){
-        if( (dataVal.length < 1) ){
+        if( (dataVal.length < 10) ){
           alert(errorMessage[validateAttrName]);
           return false;
         }

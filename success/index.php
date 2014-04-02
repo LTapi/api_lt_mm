@@ -8,5 +8,5 @@
 
   $sendOrderObj->checkNumber();
 
-  header("Location: http://".$_SERVER['HTTP_HOST']."/success/success.php?number=".$sendOrderObj->number);
+  header("Location: http://".$_SERVER['HTTP_HOST']."/success/success.php");
 ?>

@@ -1,9 +1,15 @@
 <?php
   require_once('modul/get_leadtrade.php');
+  require_once('modul/send_order.php');
 
   $leadDataObj = new Get_leadtrade();
+  $sendOrderObj = new Send_order();
 
   $leadDataObj->getSaveData();
+
+  // $defaultData = $sendOrderObj->getDefaultData($leadDataObj->number);
+
+  // var_dump($defaultData);
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -84,15 +90,17 @@
     </div>
   </div>
 
-  <input type="hidden" name="productsum" value="180 руб." class="int_price_delivery">
+  <input type="hidden" name="productsum" value="180 руб." class="int_price_delivery" />
 
-  <input type="hidden" name="delivery" value="1650 руб." class="int_price_show">
+  <input type="hidden" name="delivery" value="1650 руб." class="int_price_show" />
 
-  <input type="hidden" name="totalsum" value="1980 руб." class="int_price_total">
+  <input type="hidden" name="totalsum" value="1980 руб." class="int_price_total" />
 
   <input type="hidden" name="lead" value="<?php echo $leadDataObj->lttracking.".".$leadDataObj->ltsource; ?>" />
 
   <input type="hidden" name="subid" value="<?php echo $leadDataObj->subid; ?>" />
+
+  <input type="hidden" name="id_st" value="<?php echo $leadDataObj->id_st; ?>" />
 
   <input type="hidden" name="user" value="1" />
 

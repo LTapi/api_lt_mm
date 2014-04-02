@@ -1,0 +1,33 @@
+body, html{
+  min-height: 100%;
+  margin:0px;
+  padding: 0px;
+  background: url(/img/bg.png);
+}
+body{
+  padding-top: 40px;
+}
+.block_more_info{
+  width: 800px;
+  margin: 0px auto 20px;
+  background: #fff;
+  font-family: Arial;
+  padding: 20px 40px 40px 40px;
+  border: 1px solid #DADADA;
+  line-height: 20px;
+}
+.block_more_info h1{
+  color: #3B6A7C;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.s1{
+  font-style: italic;
+  text-align: center;
+  margin: 40px 0 0 0;
+  font-weight: bold;
+}
+h2{
+  font-size: 16px;
+  margin-top: 26px;
+}

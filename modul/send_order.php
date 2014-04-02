@@ -1,17 +1,34 @@
 <?php
+  require_once('get_leadtrade.php');
 
-  class Send_order {
+  class Send_order extends Get_leadtrade {
     public $pass, $submitUrl, $numberUrl, $number, $user;
+
+    private static $instance = null;
+
+    public static function getInstance(){
+
+      if (null === self::$instance){
+
+        self::$instance = new self();
+
+      }
+
+      return self::$instance;
+    }
 
     function __construct(){
       $this->pass = "jfTntHcdOf";
 
-      $this->submitUrl = 'http://moneymakerz.ru/_shared/submit_form/';
+      $this->submitUrl = 'http://moneymakerz.dev/_shared/submit_form/';
 
-      $this->numberUrl = 'http://moneymakerz.ru/xmlparse/postnumber/';
+      $this->numberUrl = 'http://moneymakerz.dev/xmlparse/postnumber/';
+
+      $this->getdataUrl = 'http://moneymakerz.dev/_shared/get_data/';
+
+      $this->setMailDeals = 'http://moneymakerz.dev/_shared/order_deals/';
 
       $this->user = 1;
-
     }
 
     function sendDataGeneralSystem(){
@@ -34,9 +51,13 @@
     }
 
     function setDefaultData(){
-      $this->number = $this->getCurlData( array('pass' => $this->pass), $this->numberUrl );
+      $this->getNumber();
 
-      $this->setDefaultPost( array('user' , 'lead', 'subid', 'name', 'index', 'adress', 'phone', 'country', 'city', 'quantity', 'productsum', 'delivery', 'totalsum') );
+      $this->saveCookie('number', $this->number);
+
+      $this->checkValidationData(array('name', 'adress', 'phone'));
+
+      $this->setDefaultPost(array('user' , 'lead', 'subid', 'name', 'index', 'adress', 'phone', 'country', 'city', 'quantity', 'productsum', 'delivery', 'totalsum'));
 
       $this->checkUserData();
 
@@ -49,7 +70,7 @@
 
         'domain'=> $_SERVER['SERVER_NAME'],
 
-        'id_st'=> 1,
+        'id_st'=> $_POST['id_st'],
 
         'id_usr'=> !empty($_POST['user']) ? (int) $_POST['user'] : $this->user,
 
@@ -75,6 +96,16 @@
           'totalsum' => $_POST['totalsum'],
         )
       );
+    }
+
+    function getNumber(){
+      $this->number = $this->getCurlData( array('pass' => $this->pass), $this->numberUrl );
+    }
+
+    function checkValidationData(){
+
+      var_dump($this->email('test@mail.ru'));
+      exit();
     }
 
     function setDefaultPost($keyDataArray){
@@ -120,8 +151,13 @@
       return $defaultData;
     }
 
-    function getCurlData($data, $url){
+    function getDefaultData($number){
+      if($number) return unserialize($this->getCurlData(array('number' => trim($number)), $this->getdataUrl));
 
+      return false;
+    }
+
+    function getCurlData($data, $url){
       if( $curl=curl_init() ){
 
         curl_setopt($curl, CURLOPT_SSLVERSION,3);
