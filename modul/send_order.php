@@ -20,13 +20,13 @@
     function __construct(){
       $this->pass = "jfTntHcdOf";
 
-      $this->submitUrl = 'http://moneymakerz.dev/_shared/submit_form/';
+      $this->submitUrl = 'http://moneymakerz.ru/_shared/submit_form/';
 
-      $this->numberUrl = 'http://moneymakerz.dev/xmlparse/postnumber/';
+      $this->numberUrl = 'http://moneymakerz.ru/xmlparse/postnumber/';
 
-      $this->getdataUrl = 'http://moneymakerz.dev/_shared/get_data/';
+      $this->getdataUrl = 'http://moneymakerz.ru/_shared/get_data/';
 
-      $this->setMailDeals = 'http://moneymakerz.dev/_shared/order_deals/';
+      $this->setMailDeals = 'http://moneymakerz.ru/_shared/order_deals/';
 
       $this->user = 1;
     }
