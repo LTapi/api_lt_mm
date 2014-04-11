@@ -35,7 +35,7 @@
       if( isset($_POST['lead'])){
 
         $this->processingMethodTrimStripslashes();
-
+        
         return $this->getCurlData($this->checkReplyStatus($this->setDefaultData()), $this->submitUrl);
       }
 
