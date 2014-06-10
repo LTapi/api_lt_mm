@@ -35,7 +35,7 @@
       if( isset($_POST['lead'])){
 
         $this->processingMethodTrimStripslashes();
-        
+
         return $this->getCurlData($this->checkReplyStatus($this->setDefaultData()), $this->submitUrl);
       }
 
@@ -73,6 +73,8 @@
         'id_st'=> $_POST['id_st'],
 
         'id_usr'=> !empty($_POST['user']) ? (int) $_POST['user'] : $this->user,
+
+        'product' => (isset($_POST['product'])) ? strip_tags(trim($_POST['product'])) : 'indefinitely',
 
         'data' => array(
           'name' => $_POST['name'],

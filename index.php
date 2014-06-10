@@ -98,6 +98,8 @@
 
   <input type="hidden" name="id_st" value="<?php echo $leadDataObj->id_st; ?>" />
 
+  <input type="hidden" name="product" value="gingergoji" />
+
   <input type="hidden" name="user" value="1" />
 
   <a class="ifr_button" href="javascript:void(0)" onclick="checkFields(event, this);">Оформить Заказ</a>
