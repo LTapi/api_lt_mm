@@ -20,13 +20,13 @@
     function __construct(){
       $this->pass = "jfTntHcdOf";
 
-      $this->submitUrl = 'http://moneymakerz.ru/_shared/submit_form/';
+      $this->submitUrl = 'http://moneymakerz.dev/_shared/submit_form/';
 
-      $this->numberUrl = 'http://moneymakerz.ru/xmlparse/postnumber/';
+      $this->numberUrl = 'http://moneymakerz.dev/xmlparse/postnumber/';
 
-      $this->getdataUrl = 'http://moneymakerz.ru/_shared/get_data/';
+      $this->getdataUrl = 'http://moneymakerz.dev/_shared/get_data/';
 
-      $this->setMailDeals = 'http://moneymakerz.ru/_shared/order_deals/';
+      $this->setMailDeals = 'http://moneymakerz.dev/_shared/order_deals/';
 
       $this->user = 1;
     }
@@ -53,15 +53,11 @@
     function setDefaultData(){
       $this->getNumber();
 
-      $this->saveCookie('number', $this->number);
-
       $this->checkValidationData(array('name', 'adress', 'phone'));
 
       $this->setDefaultPost(array('user' , 'lead', 'subid', 'name', 'index', 'adress', 'phone', 'country', 'city', 'quantity', 'productsum', 'delivery', 'totalsum'));
 
-      $this->checkUserData();
-
-      return array(
+      $userData = array(
         'lead'=> $_POST['lead'],
 
         'number'=> $this->number,
@@ -98,6 +94,10 @@
           'totalsum' => $_POST['totalsum'],
         )
       );
+
+      $this->setSessionPostData($userData);
+
+      return $userData;
     }
 
     function getNumber(){
@@ -127,24 +127,6 @@
 
     }
 
-    function checkUserData(){
-      if( empty($_POST['name']) && empty($_POST['phone']) ){
-
-        return $this->returnGeneralPage();
-
-      }
-    }
-
-    function checkNumber(){
-
-      if( !empty($sendOrderObj->number) ){
-
-        return $this->returnGeneralPage();
-
-      }
-
-    }
-
     function checkReplyStatus($defaultData){
       if( !$this->number ){
 
@@ -155,15 +137,11 @@
         fputcsv($fp, $content);
 
         fclose($fp);
+
+        return $this->returnGeneralPage();
       }
 
       return $defaultData;
-    }
-
-    function getDefaultData($number){
-      if($number) return unserialize($this->getCurlData(array('number' => trim($number)), $this->getdataUrl));
-
-      return false;
     }
 
     function getCurlData($data, $url){
@@ -189,25 +167,26 @@
       }
     }
 
-    function returnGeneralPage(){
-
-      header('Location: http://'.$_SERVER['HTTP_HOST']."/");
-      exit();
-    }
-
     function returnGeneralPageThisValidation($methodInputArray){
 
       foreach ($methodInputArray as $inputName) {
 
-        if(isset($_POST[$inputName])) {
+        if(isset($_POST[$inputName])){
 
-          $getStr[] = $inputName.'='.$_POST[$inputName];
+          $_SESSION['data'][$inputName] = $_POST[$inputName];
 
         }
 
       }
 
-      header('Location: http://'.$_SERVER['HTTP_HOST']."/?".implode("&", $getStr));
+      header('Location: http://'.$_SERVER['HTTP_HOST']."/");
+      exit();
+    }
+
+    function returnGeneralPage(){
+
+      header('Location: http://'.$_SERVER['HTTP_HOST']."/");
+
       exit();
     }
   }

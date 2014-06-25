@@ -1,20 +1,20 @@
 <?php
-    require_once('../modul/get_leadtrade.php');
+  session_start();
 
-    require_once('../modul/send_order.php');
+  require_once('../modul/get_leadtrade.php');
 
-    $leadDataObj = new Get_leadtrade();
+  require_once('../modul/send_order.php');
 
-    $sendOrderObj = new Send_order();
+  $leadDataObj = new Get_leadtrade();
+  
+  $sendOrderObj = new Send_order();
 
-    $leadDataObj->getSaveData();
-
-    $defaultData = $sendOrderObj->getDefaultData($leadDataObj->number);
+  $leadDataObj->getSaveData();
 ?><!DOCTYPE html>
 <html>
   <head>
 
-      <meta charset="UTF-8" />
+      <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 
       <link type="text/css" rel="stylesheet" href="default/css/style.css" />
 
@@ -32,7 +32,7 @@
 
       <div class="block_success">
 
-        <h2>ПОЗДРАВЛЯЕМ! ВАШ ЗАКАЗ №<?php echo $defaultData['number']; ?> ПРИНЯТ!</h2>
+        <h2>ПОЗДРАВЛЯЕМ! ВАШ ЗАКАЗ №<?php echo $_SESSION['number']; ?> ПРИНЯТ!</h2>
 
         <a href="/success/moreinfo.php" class="url_more_info">Нажмите здесь для получения более подробной информации о заказе</a>
 
@@ -46,11 +46,11 @@
 
           <ul class="list_info">
 
-            <li><span>Ф.И.O.: </span><?php echo $defaultData['name']; ?></li>
+            <li><span>Ф.И.O.: </span><?php echo $_SESSION['data']['name']; ?></li>
 
-            <li><span>Адрес: </span><?php echo $defaultData['adress']; ?></li>
+            <li><span>Адрес: </span><?php echo $_SESSION['data']['adress']; ?></li>
 
-            <li><span>Телефон: </span><?php echo $defaultData['phone']; ?></li>
+            <li><span>Телефон: </span><?php echo $_SESSION['data']['phone']; ?></li>
 
           </ul>
         </div>
@@ -69,7 +69,7 @@
 
             <input type="hidden" name="ltsource" id="ltsource"  value="<?php echo $leadDataObj->lttracking; ?>">
 
-            <input type="hidden" name="id_usr" id="id_usr" value="<?php echo $defaultData['id_usr']; ?>" />
+            <input type="hidden" name="id_usr" id="id_usr" value="<?php echo $_SESSION['id_usr']; ?>" />
 
             <input type="hidden" name="id_st" id="id_st" value="60" />
 

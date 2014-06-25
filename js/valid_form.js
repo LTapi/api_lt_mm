@@ -10,7 +10,7 @@
     'phone'       : 'Необходимо ввести номер телефона, минимум 10 цифр'
   }
 
-  function checkFields(event, thisLink){
+  function checkFields(event, thisLink){ 
     var form, inputDataCount;
 
     event.preventDefault();
@@ -22,12 +22,13 @@
     inputDataCount = $('input, textarea', $(form) ).length;
 
     for(var i=0; i < inputDataCount; i++){
-        
-        input = $('input, textarea', $(form))[i];
 
-        if(!validationData(input)){
-          return false;
-        }
+      input = $('input, textarea', $(form))[i];
+
+      if(!validationData(input)){
+        return false;
+      }
+
     }
 
     form.submit();

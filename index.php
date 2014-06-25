@@ -1,11 +1,13 @@
 <?php
+  session_start();
+
   require_once('modul/get_leadtrade.php');
 
   $leadDataObj = new Get_leadtrade();
 
   $leadDataObj->getSaveData();
 
-  $validData = $leadDataObj->getValidData();
+  $validData = $leadDataObj->getUserRepeatData();
 ?><!DOCTYPE html>
 <html>
 <head>

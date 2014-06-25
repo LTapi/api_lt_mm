@@ -2,14 +2,12 @@
   require_once('validation.php');
 
   class Get_leadtrade extends Validation {
-    public $lttracking, $ltsource, $subid, $id_st, $number;
+    public $lttracking, $ltsource, $subid, $id_st;
 
     function __construct(){
       $this->lttracking = ""; $this->ltsource = ""; $this->subid = "";
 
       $this->id_st = isset($_GET['id_st']) ? $_GET['id_st'] : 1;
-
-      $this->number = false;
     }
 
     function getSaveData(){
@@ -69,18 +67,22 @@
       setcookie($name, $data, time() + (60 * 60 * 24 * 30));
     }
 
-    function buildingHrefImg(){
-      return "http://t.leadtrade.ru/21.png?lttracking=".$this->lttracking."&ltid=".trim($_COOKIE['number']);
+    function setSessionPostData($userData){
+      foreach ($userData as $key => $value) { $_SESSION[$key] = $value; }
     }
 
-    function getValidData(){
+    function getUserRepeatData(){
       return array(
-        'name' => isset($_GET['name']) ? $_GET['name'] : "",
+        'name' => isset($_SESSION['data']['name']) ? $_SESSION['data']['name'] : "",
 
-        'adress' => isset($_GET['adress']) ? $_GET['adress'] : "",
+        'adress' => isset($_SESSION['data']['adress']) ? $_SESSION['data']['adress'] : "",
 
-        'phone' => isset($_GET['phone']) ? $_GET['phone'] : ""
+        'phone' => isset($_SESSION['data']['phone']) ? $_SESSION['data']['phone'] : ""
       );
+    }
+
+    function buildingHrefImg(){
+      return "http://t.leadtrade.ru/21.png?lttracking=".$this->lttracking."&ltid=".trim($_SESSION['number']);
     }
   }
 ?>
