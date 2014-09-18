@@ -1,51 +1,28 @@
-cntry_selector = '#country';
-quantity_selector = '#int_product_count';
-
 $(document).ready(function() {
-  $(cntry_selector).change( function() {
-    upd_int();
-  });
-  $(quantity_selector).keyup(function() {
-    if ($(this).val() < 1) {
-      $(this).val(1);
-    }
-    upd_int();
-  });
 
-  $('.form_input').focus(function(){
+  upd_int();
 
-    $(this).next('.fhelp').children('.err_note').hide().siblings('.example').show();
-  });
- });
+  $('#country').change( function() { upd_int(); });
+
+});
+
 
 function upd_int() {
-  curs  = $(cntry_selector).children(":selected").val();
-  count   = $(quantity_selector).val();
+  curs  = $('#country').children(":selected").val();
 
-  if($.isNumeric(count)) {
+  producInfo = $jsonData[curs];
 
-    count   = $(quantity_selector).val();
+  $('input[name=productsum').val(producInfo.productsum + producInfo.currency);
+  $('.productsum').html(producInfo.productsum + producInfo.currency);
 
-  } else {
+  $('input[name=delivery').val(producInfo.delivery + producInfo.currency);
+  $('.delivery').html(producInfo.delivery + producInfo.currency);
 
-    count = 1;
+  $('input[name=totalsum').val(producInfo.totalsum + producInfo.currency);
+  $('.totalsum').html(producInfo.totalsum + producInfo.currency);
+  
 
-  }
-
-  prod_info = $jsonData.prices[curs];
-
-  total = (prod_info.price + prod_info.delivery_price + prod_info.tax_price);
-
-  $(".int_price_show").text(prod_info.price * count + " " + prod_info.currency);
-
-  $(".int_price_delivery").text(prod_info.delivery_price * count + " " + prod_info.currency);
-
-  $(".int_price_total").text(total * count + " " + prod_info.currency);
-
-  $(".int_price_old").text(prod_info.old_price * count + " " + prod_info.currency);
-
-  $("#product_count").val(count);
-  $("#note_name b").text(prod_info.name_template);
-  $("#note_phone b").text(prod_info.phone_template);
-  $("#note_address b").text(prod_info.address_template);
+  $("#note_name b").text(producInfo.name_template);
+  $("#note_phone b").text(producInfo.phone_template);
+  $("#note_address b").text(producInfo.address_template);
 }
