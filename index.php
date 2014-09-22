@@ -10,7 +10,7 @@
 
   $validData = $leadDataObj->getUserRepeatData();
 
-  $leadDataObj->setRuSumm('1980', '1650', '180');
+  $leadDataObj->setRuSumm('1980', '1650', '180', '3200');
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +39,7 @@
   <div class="order_form">
     <div class="block_form">
       <label>Страна:</label>
-      <select name="country" id='country'>
+      <select name="country" class='countryselect'>
         <?php echo $leadDataObj->getSelectChangeCurentCountry(); ?>
       </select>
     </div>
@@ -108,4 +108,7 @@
 
 </form>
 
+<div>
+  Старая цена <span class="oldproductsum"></span>
+</div>
 </body>

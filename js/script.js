@@ -2,13 +2,19 @@ $(document).ready(function() {
 
   upd_int();
 
-  $('#country').change( function() { upd_int(); });
+  $('.countryselect').change( function() { 
+    changeCountry =  $(this).val();
+
+    $('.countryselect option[value='+changeCountry+']').prop("selected", true);
+
+    upd_int(); 
+  });
 
 });
 
 
 function upd_int() {
-  curs  = $('#country').children(":selected").val();
+  curs  = $('.countryselect').children(":selected").val();
 
   producInfo = $jsonData[curs];
 
@@ -20,6 +26,8 @@ function upd_int() {
 
   $('input[name=totalsum').val(producInfo.totalsum + producInfo.currency);
   $('.totalsum').html(producInfo.totalsum + producInfo.currency);
+
+  $('.oldproductsum').html(producInfo.oldproductsum + producInfo.currency);
   
 
   $("#note_name b").text(producInfo.name_template);

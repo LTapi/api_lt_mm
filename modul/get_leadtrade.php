@@ -3,11 +3,12 @@
 
   require_once('validation.php');
 
-  require_once('./_api/sxgeo.php');
+  require_once(dirname(dirname(__FILE__)).'/_api/sxgeo.php');
 
-  require_once('./helper/select_define_builder.php');
+  require_once(dirname(dirname(__FILE__)).'/helper/select_define_builder.php');
 
   class Get_leadtrade extends Validation {
+
     public $lttracking, $ltsource, $subid, $id_st;
 
     function __construct(){
@@ -107,7 +108,7 @@
       return array("RU" => "Россия", "BY" => "Беларусь", "UA" => "Украина", "KZ" => "Казахстан");
     }
 
-    function setRuSumm($totalsum = 0, $productsum = 0, $delivery = 0){
+    function setRuSumm($totalsum = 0, $productsum = 0, $delivery = 0, $oldproductsum = 0){
 
       $cbrSumArr = $this->getCbrSumArr();
 
@@ -118,6 +119,8 @@
         $GLOBALS['pricesJson'][$countryIso]['productsum'] = $this->getSum($cbrSumArr, $productsum, $countryIso);
 
         $GLOBALS['pricesJson'][$countryIso]['delivery'] = $this->getSum($cbrSumArr, $delivery, $countryIso);
+
+        $GLOBALS['pricesJson'][$countryIso]['oldproductsum'] = $this->getSum($cbrSumArr, $oldproductsum, $countryIso);
       }
     }
 
