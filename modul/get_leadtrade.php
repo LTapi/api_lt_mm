@@ -9,7 +9,7 @@
 
   class Get_leadtrade extends Validation {
 
-    public $lttracking, $ltsource, $subid, $id_st;
+    public $lttracking, $ltsource, $subid, $id_st, $cbrNominalArr;
 
     function __construct(){
       $this->lttracking = ""; $this->ltsource = ""; $this->subid = "";
@@ -135,6 +135,8 @@
 
           $cbrSumArr[$this->cleanCharCodeRenameCountryCode(strval($sum->CharCode))] = strval($sum->Value);
 
+          $this->cbrNominalArr[$this->cleanCharCodeRenameCountryCode(strval($sum->CharCode))] = strval($sum->Nominal);
+
         }
 
       }
@@ -148,10 +150,15 @@
       return $charCode;
     }
 
-    function getSum($cbrSumArr, $totalsum, $countryIso){
-      if( isset($cbrSumArr[$countryIso]) ) return $cbrSumArr[$countryIso] * $totalsum;
+    function getSum($cbrSumArr, $sum, $countryIso){
+      // var_dump($cbrSumArr);
+      // var_dump($this->cbrNominalArr);
+      // var_dump($sum);
+      // var_dump($countryIso);
 
-      return intval($totalsum);
+      if( isset($cbrSumArr[$countryIso]) ) return round($sum / ($cbrSumArr[$countryIso]/$this->cbrNominalArr[$countryIso]));
+
+      return intval($sum);
     }
   }
 ?>
