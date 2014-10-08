@@ -9,7 +9,7 @@
 
   class Get_leadtrade extends Validation {
 
-    public $lttracking, $ltsource, $subid, $id_st, $cbrNominalArr;
+    public $lttracking, $ltsource, $subid, $id_st, $cbrNominalArr, $defaultNominalRate;
 
     function __construct(){
       $this->lttracking = ""; $this->ltsource = ""; $this->subid = "";
@@ -108,6 +108,10 @@
       return array("RU" => "Россия", "BY" => "Беларусь", "UA" => "Украина", "KZ" => "Казахстан");
     }
 
+    function setRate($onOffRate, $RU = 0, $BY = 0, $KZ = 0, $UA = 0){
+      if($onOffRate) $this->defaultNominalRate = array('RU' => $RU, 'BY' => $BY, 'KZ' => $KZ, 'UA' => $UA);
+    }
+
     function setRuSumm($totalsum = 0, $productsum = 0, $delivery = 0, $oldproductsum = 0){
 
       $cbrSumArr = $this->getCbrSumArr();
@@ -151,14 +155,21 @@
     }
 
     function getSum($cbrSumArr, $sum, $countryIso){
-      // var_dump($cbrSumArr);
-      // var_dump($this->cbrNominalArr);
-      // var_dump($sum);
-      // var_dump($countryIso);
 
-      if( isset($cbrSumArr[$countryIso]) ) return round($sum / ($cbrSumArr[$countryIso]/$this->cbrNominalArr[$countryIso]));
+      if( isset($cbrSumArr[$countryIso]) ){
+
+        return round($sum / $this->getNominal($countryIso, $cbrSumArr[$countryIso], $this->cbrNominalArr[$countryIso]));
+      }
 
       return intval($sum);
+    }
+
+    function getNominal($countryIso, $summ, $cbrNominalArr){
+      $cbrNominal = ($summ/$cbrNominalArr);
+
+      $nominal = isset($this->defaultNominalRate[$countryIso]) ? $this->defaultNominalRate[$countryIso] : $cbrNominal;
+
+      return ($nominal == 0) ? $cbrNominal : $nominal;
     }
   }
 ?>
