@@ -18,16 +18,16 @@ function upd_int() {
 
   producInfo = $jsonData[curs];
 
-  $('input[name=productsum').val(producInfo.productsum + producInfo.currency);
-  $('.productsum').html(producInfo.productsum + producInfo.currency);
+  $("input[name=productsum]").val(producInfo.productsum + producInfo.currency).trigger('change');
+  $(".productsum").html(producInfo.productsum + producInfo.currency);
 
-  $('input[name=delivery').val(producInfo.delivery + producInfo.currency);
-  $('.delivery').html(producInfo.delivery + producInfo.currency);
+  $("input[name=delivery]").val(producInfo.delivery + producInfo.currency).trigger('change');
+  $(".delivery").html(producInfo.delivery + producInfo.currency);
 
-  $('input[name=totalsum').val(producInfo.totalsum + producInfo.currency);
-  $('.totalsum').html(producInfo.totalsum + producInfo.currency);
+  $("input[name=totalsum]").val(producInfo.totalsum + producInfo.currency).trigger('change');
+  $(".totalsum").html(producInfo.totalsum + producInfo.currency);
 
-  $('.oldproductsum').html(producInfo.oldproductsum + producInfo.currency);
+  $(".oldproductsum").html(producInfo.oldproductsum + producInfo.currency);
   
 
   $("#note_name b").text(producInfo.name_template);
