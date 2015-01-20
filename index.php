@@ -10,7 +10,7 @@
 
   $validData = $leadDataObj->getUserRepeatData();
 
-  $leadDataObj->setRate(true, $RU = 1, $BY = 0.0037, $KZ = 0.21, $UA = 3);
+  $leadDataObj->setRate($RU = 1, $BY = 0.0037, $KZ = 0.21, $UA = 3);
 
   $leadDataObj->setRuSumm($totalsum = '1980', $productsum = '1650', $delivery = '180', $oldproductsum = '3200');
 ?><!DOCTYPE html>

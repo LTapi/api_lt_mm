@@ -6,23 +6,24 @@
   require_once('../modul/send_order.php');
 
   $leadDataObj = new Get_leadtrade();
-  
+
   $sendOrderObj = new Send_order();
 
   $leadDataObj->getSaveData();
 ?><!DOCTYPE html>
 <html>
+
   <head>
 
-      <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
 
-      <link type="text/css" rel="stylesheet" href="default/css/style.css" />
+    <link type="text/css" rel="stylesheet" href="default/css/style.css" />
 
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script src="default/js/jquery.min.js"></script>
 
-      <script type="text/javascript" src="default/js/script.js"></script>
+    <script type="text/javascript" src="default/js/script.js"></script>
 
-      <title>Заявка отправленна</title>
+    <title>Заявка отправленна</title>
 
   </head>
 

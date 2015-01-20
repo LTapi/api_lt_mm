@@ -15,6 +15,8 @@
       $this->lttracking = ""; $this->ltsource = ""; $this->subid = "";
 
       $this->id_st = isset($_GET['id_st']) ? $_GET['id_st'] : 1;
+
+      $this->defaultNominalRate = array('RU' => 1, 'BY' => 0.0037, 'KZ' => 0.21, 'UA' => 3);
     }
 
     function getSaveData(){
@@ -92,6 +94,10 @@
       return "http://t.leadtrade.ru/21.png?lttracking=".$this->lttracking."&ltid=".trim($_SESSION['number']);
     }
 
+
+    /*
+     * Select Country builder, get current location, use sxgeo DB
+    */
     function getSelectChangeCurentCountry(){
       return select_define_builder(array($this->getCountry()), $this->getCountryValueName(), true);
     }
@@ -108,68 +114,28 @@
       return array("RU" => "Россия", "BY" => "Беларусь", "UA" => "Украина", "KZ" => "Казахстан");
     }
 
-    function setRate($onOffRate, $RU = 0, $BY = 0, $KZ = 0, $UA = 0){
-      if($onOffRate) $this->defaultNominalRate = array('RU' => $RU, 'BY' => $BY, 'KZ' => $KZ, 'UA' => $UA);
+
+    /*
+     * Set Local price for Form
+    */
+    function setRate($RU = 0, $BY = 0, $KZ = 0, $UA = 0){
+      return $this->defaultNominalRate = array('RU' => $RU, 'BY' => $BY, 'KZ' => $KZ, 'UA' => $UA);
     }
 
     function setRuSumm($totalsum = 0, $productsum = 0, $delivery = 0, $oldproductsum = 0){
 
-      $cbrSumArr = $this->getCbrSumArr();
-
       foreach ($GLOBALS['pricesJson'] as $countryIso => $sumData) {
 
-        $GLOBALS['pricesJson'][$countryIso]['totalsum'] = $this->getSum($cbrSumArr, $totalsum, $countryIso);
+        $GLOBALS['pricesJson'][$countryIso]['totalsum'] = $this->getSum($totalsum, $countryIso);
 
-        $GLOBALS['pricesJson'][$countryIso]['productsum'] = $this->getSum($cbrSumArr, $productsum, $countryIso);
+        $GLOBALS['pricesJson'][$countryIso]['productsum'] = $this->getSum($productsum, $countryIso);
 
-        $GLOBALS['pricesJson'][$countryIso]['delivery'] = $this->getSum($cbrSumArr, $delivery, $countryIso);
+        $GLOBALS['pricesJson'][$countryIso]['delivery'] = $this->getSum($delivery, $countryIso);
 
-        $GLOBALS['pricesJson'][$countryIso]['oldproductsum'] = $this->getSum($cbrSumArr, $oldproductsum, $countryIso);
+        $GLOBALS['pricesJson'][$countryIso]['oldproductsum'] = $this->getSum($oldproductsum, $countryIso);
       }
     }
 
-    function getCbrSumArr(){
-      $cbrSumArr = array();
-
-      $cbrSumStr = simplexml_load_file("http://www.cbr.ru/scripts/XML_daily.asp?date_req=".date("d/m/Y"));
-
-      if(is_object($cbrSumStr)){
-
-        foreach ($cbrSumStr AS $sum){
-
-          $cbrSumArr[$this->cleanCharCodeRenameCountryCode(strval($sum->CharCode))] = strval($sum->Value);
-
-          $this->cbrNominalArr[$this->cleanCharCodeRenameCountryCode(strval($sum->CharCode))] = strval($sum->Nominal);
-
-        }
-
-      }
-
-      return $cbrSumArr;
-    }
-
-    function cleanCharCodeRenameCountryCode($charCode, $rateCode = array('BYR' => 'BY', 'UAH' => 'UA', 'KZT' => 'KZ')){
-      if( isset($rateCode[$charCode]) ) return $rateCode[$charCode];
-
-      return $charCode;
-    }
-
-    function getSum($cbrSumArr, $sum, $countryIso){
-
-      if( isset($cbrSumArr[$countryIso]) ){
-
-        return round($sum / $this->getNominal($countryIso, $cbrSumArr[$countryIso], $this->cbrNominalArr[$countryIso]));
-      }
-
-      return intval($sum);
-    }
-
-    function getNominal($countryIso, $summ, $cbrNominalArr){
-      $cbrNominal = ($summ/$cbrNominalArr);
-
-      $nominal = isset($this->defaultNominalRate[$countryIso]) ? $this->defaultNominalRate[$countryIso] : $cbrNominal;
-
-      return ($nominal == 0) ? $cbrNominal : $nominal;
-    }
+    function getSum($sum, $countryIso){ return round($sum / $this->defaultNominalRate[$countryIso]); }
   }
 ?>
