@@ -106,7 +106,10 @@
 
   <input type="hidden" name="user" value="1" />
 
-  <a class="ifr_button" href="javascript:void(0)" onclick="checkFields(event, this);">Оформить Заказ</a>
+  <div class="reolader">
+    <a class="mm_button" href="javascript:void(0)" onclick="checkFields(event, this);">Оформить Заказ</a>
+    <div class="ajax_loader_block"><img class="ajax_loader" src="/img/ajax-loader.gif" alt="Идет отправка данных"> <span class="ajax_loader">Идет отправка данных</span></div>
+  </div>
 
 </form>
 

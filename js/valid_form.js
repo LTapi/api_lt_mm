@@ -31,7 +31,16 @@
 
     }
 
-    form.submit();
+    $('.mm_button').hide();
+
+    $('.ajax_loader').show();
+
+    form.submit(function(event){
+
+      event.preventDefault();
+
+    });
+
     return true;
   }
 

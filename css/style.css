@@ -15,9 +15,10 @@ body{font-family: "Arial";}
 .order_form .clear{clear: both;}
 .order_form .fhelp  {font-size:12px;color:#999;display:block;padding-top: 10px;text-shadow: #fff 1px 1px;}
 .order_form .errorMedium {background: #fff;color:#f00;padding:3px 8px;margin:3px 0px 0px 3px;text-shadow:#fff 1px 1px;border:#f00 1px solid;-webkit-border-radius:5px;-moz-border-radius:5px;border-radius:5px;}
-.ifr_button{display: block;margin: 20px auto;color: #fff;font: normal 32px Calibri, arial, sans-serif;text-decoration: none;text-align: center;width: 402px;height: 64px;line-height: 64px;background: url(/img/btn.png);}    
-.ifr_button:hover{color: #fff; text-decoration: none;}
-.ifr_button2{display: none!important; overflow:hidden;padding:12px;width:194px;height:63px;display: block;background:url(/img/bg-button.png) no-repeat;margin: 0px auto;text-align: center;line-height: 63px;}
+
+.mm_button{display: block;margin: 20px auto;color: #fff;font: normal 32px Calibri, arial, sans-serif;text-decoration: none;text-align: center;width: 402px;height: 64px;line-height: 64px;background: url(/img/btn.png);}    
+.mm_button:hover{color: #fff; text-decoration: none;}
+.mm_button2{display: none!important; overflow:hidden;padding:12px;width:194px;height:63px;display: block;background:url(/img/bg-button.png) no-repeat;margin: 0px auto;text-align: center;line-height: 63px;}
 @media screen and (max-width:710px) { 
     .block_form label{text-align: left;margin: 8px 21px 7px 0;float: none;}
     .block_form div {margin-left: 0px;}
@@ -25,7 +26,17 @@ body{font-family: "Arial";}
     .form_hr {width: 100%;}
     .block_form_prices label{float: left;width: auto}
     .int_price_total{margin: 0px;}
-    .ifr_button2{display: block!important;}
-    .ifr_button{display: none;}
+    .mm_button2{display: block!important;}
+    .mm_button{display: none;}
     .order_form{padding: 10px 20px;}
 }
+
+.reolader {
+    text-align: center;
+}
+
+.ajax_loader {
+    display: none;
+}
+
+.ajax_loader_block { margin: 4px; }
