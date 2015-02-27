@@ -26,7 +26,7 @@
 
       $this->getdataUrl = 'http://moneymakerz.ru/_shared/get_data/';
 
-      $this->setMailDeals = 'http://moneymakerz.ru/_shared/order_deals/';
+      $this->setMailDeals = 'http://moneymakerz.ru/_shared/submit_form/';
 
       $this->user = 1;
     }
