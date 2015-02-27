@@ -20,15 +20,15 @@ function checkForm() {
         url: "/success/order_deals.php", 
 
         data: {
-          'ltsource'      : $('#ltsource').val(),
+            'lead'          : $('#ltsource').val(),
 
-          'domain'        : document.domain,
+            'domain'        : document.domain,
 
-          'id_usr'        : $('#id_usr').val(),
+            'id_usr'        : $('#id_usr').val(),
 
-          'id_st'         : $('#id_st').val(),
+            'id_st'         : $('#id_st').val(),
 
-          'data'          : {
+            'data'          : {
 
             'email'       : $('#email').val(),
 
@@ -42,7 +42,8 @@ function checkForm() {
           $(".mail_block .button").addClass("disabled");
         },
 
-        success: function(){
+        success: function(data){
+
           $(".mail_block").hide();
 
           $("#error_mail").addClass("mail_s").html("Адрес электронной почты успешно сохранен").show();
