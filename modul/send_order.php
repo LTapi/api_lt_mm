@@ -1,6 +1,8 @@
 <?php
   require_once('get_leadtrade.php');
 
+  require_once(dirname(dirname(__FILE__)).'/_api/sxgeo.php');
+
   class Send_order extends Get_leadtrade {
     public $pass, $submitUrl, $numberUrl, $number, $user;
 
@@ -20,13 +22,13 @@
     function __construct(){
       $this->pass = "jfTntHcdOf";
 
-      $this->submitUrl = 'http://moneymakerz.ru/_shared/submit_form/';
+      $this->submitUrl = 'http://moneymakerz.dev/_shared/submit_form/';
 
-      $this->numberUrl = 'http://moneymakerz.ru/xmlparse/postnumber/';
+      $this->numberUrl = 'http://moneymakerz.dev/xmlparse/postnumber/';
 
-      $this->getdataUrl = 'http://moneymakerz.ru/_shared/get_data/';
+      $this->getdataUrl = 'http://moneymakerz.dev/_shared/get_data/';
 
-      $this->setMailDeals = 'http://moneymakerz.ru/_shared/submit_form/';
+      $this->setMailDeals = 'http://moneymakerz.dev/_shared/submit_form/';
 
       $this->user = 1;
     }
@@ -36,7 +38,9 @@
 
         $this->processingMethodTrimStripslashes();
 
-        return $this->getCurlData($this->checkReplyStatus($this->setDefaultData()), $this->submitUrl);
+        // return $this->getCurlData($this->checkReplyStatus($this->setDefaultData()), $this->submitUrl);
+        $this->getCurlData($this->checkReplyStatus($this->setDefaultData()), $this->submitUrl);
+        exit();
       }
 
       return $this->returnGeneralPage();
@@ -45,7 +49,7 @@
     function processingMethodTrimStripslashes(){
       foreach ($_POST as $key => $value) {
 
-        $_POST[$key] = stripslashes(trim($value));
+        $_POST[$key] = htmlspecialchars(stripslashes(trim($value)));
 
       }
     }
@@ -160,7 +164,7 @@
         curl_setopt($curl, CURLOPT_URL, $url);
 
         $returnCurlData = curl_exec($curl);
-
+echo $returnCurlData;
         curl_close($curl);
 
         return $returnCurlData;

@@ -42,7 +42,7 @@
     <div class="block_form">
       <label>Страна:</label>
       <select name="country" class='countryselect'>
-        <?php echo $leadDataObj->getSelectChangeCurentCountry(); ?>
+        <?= $leadDataObj->getSelectChangeCurentCountry(); ?>
       </select>
     </div>
 
