@@ -1,11 +1,27 @@
 <?php
   session_start();
 
-  require_once('../modul/send_order.php');
+  if(time() - @$_SESSION['start_visit'] > 10) {
 
-  $sendOrderObj = new Send_order();
+      require_once('../modul/send_order.php');
+      require_once('../modul/get_leadtrade.php');
 
-  $sendOrderObj->sendDataGeneralSystem();
+      $leadDataObj = new Get_leadtrade();
 
-  header("Location: http://".$_SERVER['HTTP_HOST']."/success/success.php");
-?>
+      if(!isset($_SESSION['was_lead']) or $_SESSION['was_lead'] != $leadDataObj->lttracking) {
+
+           $_SESSION['was_lead'] = $leadDataObj->lttracking;
+
+           $sendOrderObj = new Send_order();
+
+           $sendOrderObj->sendDataGeneralSystem();
+
+           header("Location: http://".$_SERVER['HTTP_HOST']."/success/success.php");
+
+       } else {
+
+           header("Location: http://".$_SERVER['HTTP_HOST']."/success/sorry.php");
+      }
+
+  }
+  ?>

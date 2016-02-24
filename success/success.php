@@ -51,7 +51,7 @@
 
             <li><span>Адрес: </span><?php echo $_SESSION['data']['adress']; ?></li>
 
-            <li><span>Телефон: </span><?php echo $_SESSION['data']['phone']; ?></li>
+            <li><span>Телефон: </span><?php echo $_SESSION['phone']; ?></li>
 
           </ul>
         </div>

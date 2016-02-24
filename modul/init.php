@@ -23,6 +23,13 @@
       "name_template"     => "Алтынбаев Азат Тюлегенович"
     ),
 
+ "MDA" => array(
+      "currency"          => " лей",
+      "phone_template"    => "+7 705 1301111",
+      "address_template"  => "ул. Майлина, д.3, кв. 6, г. Костанай, 110003",
+      "name_template"     => "Алтынбаев Азат Тюлегенович"
+    ),
+
     "BY" => array(
       "currency"          => " бел.руб.",
       "phone_template"    => "+37 529 186 24 65",

@@ -9,14 +9,16 @@
 
   class Get_leadtrade extends Validation {
 
-    public $lttracking, $ltsource, $subid, $id_st, $cbrNominalArr, $defaultNominalRate;
+    public $lttracking, $ltsource, $subid, $id_st, $cbrNominalArr, $defaultNominalRate, $countries;
 
     function __construct(){
       $this->lttracking = ""; $this->ltsource = ""; $this->subid = "";
 
       $this->id_st = isset($_GET['id_st']) ? $_GET['id_st'] : 1;
 
-      $this->defaultNominalRate = array('RU' => 1, 'BY' => 0.0037, 'KZ' => 0.21, 'UA' => 3);
+      $this->defaultNominalRate = array('RU' => 1, 'BY' => 1, 'KZ' => 1, 'UA' => 1, 'MDA' => 1);
+
+
     }
 
     function getSaveData(){
@@ -91,7 +93,8 @@
     }
 
     function buildingHrefImg(){
-      return "http://t.leadtrade.ru/21.png?lttracking=".$this->lttracking."&ltid=".trim($_SESSION['number']);
+     $countries = $this->getaim();
+      return "http://t.leadtrade.ru/21.png?lttracking=".$this->lttracking."&ltid=".trim($_SESSION['number'])."&aim=".$countries[$_SESSION['data']['country']];
     }
 
 
@@ -105,21 +108,28 @@
     function getCountry(){
       $sxGeo = new SxGeo('_api/sxgeocity.dat');
 
-      $dataGeo = $sxGeo->get($_SERVER['REMOTE_ADDR']);
+      $dataGeo = $sxGeo->get($_SERVER['HTTP_X_REAL_IP']);
 
       return $dataGeo['country']['iso'];
     }
 
     function getCountryValueName(){
-      return array("RU" => "Россия", "BY" => "Беларусь", "UA" => "Украина", "KZ" => "Казахстан", "MD" => 'Молдова');
+      return array("RU" => "Россия", "BY" => "Беларусь", "UA" => "Украина", "KZ" => "Казахстан", "MDA" => "Молдова");
     }
+
+
+function getaim() {
+return array("RU" =>"1", "BY" => "2", "KZ" => "3", "UA" => "4", "MDA" => "5");
+
+}
+
 
 
     /*
      * Set Local price for Form
     */
-    function setRate($RU = 0, $BY = 0, $KZ = 0, $UA = 0){
-      return $this->defaultNominalRate = array('RU' => $RU, 'BY' => $BY, 'KZ' => $KZ, 'UA' => $UA);
+    function setRate($RU = 0, $BY = 0, $KZ = 0, $UA = 0, $MDA = 0){
+      return $this->defaultNominalRate = array('RU' => $RU, 'BY' => $BY, 'KZ' => $KZ, 'UA' => $UA, 'MDA' => $MDA);
     }
 
     function setRuSumm($totalsum = 0, $productsum = 0, $delivery = 0, $oldproductsum = 0){
@@ -136,6 +146,8 @@
       }
     }
 
-    function getSum($sum, $countryIso){ return round($sum / $this->defaultNominalRate[$countryIso]); }
+    function getSum($sum, $countryIso){ return round($sum * $this->defaultNominalRate[$countryIso]); }
+
+
   }
 ?>
